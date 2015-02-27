@@ -180,8 +180,8 @@ protected:
 			void main() {
 				vec2 TC = gl_TexCoord[0].xy;
 				
-				int N = 16;
-				float delta = blur_size / floor(N);
+				const int N = 16;
+				float delta = blur_size / float(N);
 
 				vec3 color = texture2D(tex, TC).rgb;
 
@@ -190,7 +190,7 @@ protected:
 					color += texture2D(tex, TC + d).rgb;
 					color += texture2D(tex, TC - d).rgb;
 				}
-				color /= float(N * 2 + 1);
+				color /= float(N) * 2 + 1;
 
 				gl_FragColor = vec4(color, 1.0);
 			}
