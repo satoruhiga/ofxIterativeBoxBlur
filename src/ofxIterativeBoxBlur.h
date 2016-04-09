@@ -24,9 +24,10 @@ public:
 	{
 		if (pingpong.size())
 		{
-			if (pingpong[0].front->getWidth() != in.getWidth()
-				|| pingpong[0].front->getHeight() != in.getHeight())
-				reset();
+			if (pingpong[0].front->getWidth() != in.getWidth() * pingpong[0].scale
+                || pingpong[0].front->getHeight() != in.getHeight() * pingpong[0].scale) {
+                reset();
+            }
 		}
 		
 		ofPushStyle();
